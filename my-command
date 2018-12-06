@@ -1,3 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-python3 ~/.useful_scripts/$1/main.py
+import subprocess
+import os
+import sys
+
+if __name__ == "__main__":
+   if len(sys.argv) == 1:
+      print("No args.")
+      sys.exit(0)
+
+   home_path = os.path.expanduser('~')
+   if sys.argv[1] == "list":
+      dirs = []      
+      for content in os.listdir(home_path + "/.useful_scripts/"):
+         if os.path.isdir(home_path + "/.useful_scripts/" + content):
+            with open(home_path + "/.useful_scripts/" + content + "/explain.txt") as f:
+               explain = f.readline()[:-1]
+            print("{}   {}".format(content, explain))
+   else:
+      subprocess.call(["python3", home_path + "/.useful_scripts/" + str(sys.argv[1]) + "/main.py"])
