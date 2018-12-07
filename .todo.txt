@@ -1,0 +1,2 @@
+* my-commandに補完機能をつける
+PythonスクリプトからShellスクリプトにする必要あり?
