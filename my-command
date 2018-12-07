@@ -17,6 +17,8 @@ if __name__ == "__main__":
          if os.path.isdir(home_path + "/.useful_scripts/" + content):
             with open(home_path + "/.useful_scripts/" + content + "/explain.txt") as f:
                explain = f.readline()[:-1]
-            print("{}   {}".format(content, explain))
-   else:
+            print("{} \t {}".format(content, explain))
+   elif len(sys.argv) == 2:
       subprocess.call(["python3", home_path + "/.useful_scripts/" + str(sys.argv[1]) + "/main.py"])
+   else:
+      subprocess.call(["python3", home_path + "/.useful_scripts/" + str(sys.argv[1]) + "/main.py"] + sys.argv[2:])
