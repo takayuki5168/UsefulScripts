@@ -2,7 +2,7 @@
 
 ## Installation
 ```bash
-$ ./install.sh
+$ sudo ./install.sh
 ```
 
 ## How To Use
