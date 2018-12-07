@@ -12,12 +12,19 @@ if __name__ == "__main__":
 
    home_path = os.path.expanduser('~')
    if sys.argv[1] == "list":
-      dirs = []      
+      dirs = []
       for content in os.listdir(home_path + "/.useful_scripts/"):
          if os.path.isdir(home_path + "/.useful_scripts/" + content):
             with open(home_path + "/.useful_scripts/" + content + "/explain.txt") as f:
                explain = f.readline()[:-1]
             print("{} \t {}".format(content, explain))
+   elif sys.argv[1] == "help":
+      print("Usage:")
+      print("  my-command <command> [options]\n")
+      
+      print("Commands:")
+      print("  list")
+      print("  help")   
    elif len(sys.argv) == 2:
       subprocess.call(["python3", home_path + "/.useful_scripts/" + str(sys.argv[1]) + "/main.py"])
    else:
